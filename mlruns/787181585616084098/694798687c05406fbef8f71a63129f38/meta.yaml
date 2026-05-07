@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/787181585616084098/694798687c05406fbef8f71a63129f38/artifacts
+end_time: 1778131109027
+entry_point_name: ''
+experiment_id: '787181585616084098'
+lifecycle_stage: active
+run_id: 694798687c05406fbef8f71a63129f38
+run_name: nimble-fish-812
+run_uuid: 694798687c05406fbef8f71a63129f38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778131106125
+status: 3
+tags: []
+user_id: duckduck

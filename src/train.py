@@ -5,10 +5,15 @@ import yaml
 import json
 import joblib
 import os
+import tempfile
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
 
 EVAL_THRESHOLD = 0.70
+
+# Set mlflow tracking URI to temp directory to avoid permission issues in CI/CD
+if "GITHUB_ACTIONS" in os.environ or not os.access(os.path.expanduser("~"), os.W_OK):
+    mlflow.set_tracking_uri(os.path.join(tempfile.gettempdir(), "mlflow"))
 
 mlflow.set_experiment("vinuni")
 def train(

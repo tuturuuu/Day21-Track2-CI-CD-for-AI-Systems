@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/787181585616084098/e0aec6555ae9441ebcc7a2074973c774/artifacts
+end_time: 1778131106106
+entry_point_name: ''
+experiment_id: '787181585616084098'
+lifecycle_stage: active
+run_id: e0aec6555ae9441ebcc7a2074973c774
+run_name: marvelous-bird-408
+run_uuid: e0aec6555ae9441ebcc7a2074973c774
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778131103152
+status: 3
+tags: []
+user_id: duckduck
