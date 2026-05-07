@@ -29,6 +29,22 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Debug MLflow context (test job)
+        run: |
+          echo "PWD=$(pwd)"
+          echo "HOME=$HOME"
+          python - <<'EOF'
+          import os
+          import mlflow
+          print("GITHUB_ACTIONS=", os.environ.get("GITHUB_ACTIONS"))
+          print("PYTEST_CURRENT_TEST exists=", "PYTEST_CURRENT_TEST" in os.environ)
+          print("MLFLOW_TRACKING_URI env=", os.environ.get("MLFLOW_TRACKING_URI"))
+          print("mlflow.get_tracking_uri()=", mlflow.get_tracking_uri())
+          EOF
+          ls -la
+          [ -f mlflow.db ] && echo "mlflow.db exists" || echo "mlflow.db missing"
+          [ -d mlruns ] && echo "mlruns exists" || echo "mlruns missing"
+
       - name: Run unit tests
         # TODO 1: Viet lenh de chay pytest tren thu muc tests/ voi co -v
         run: pytest tests/ -v
@@ -56,6 +72,21 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Debug MLflow context (train job)
+        run: |
+          echo "PWD=$(pwd)"
+          echo "HOME=$HOME"
+          python - <<'EOF'
+          import os
+          import mlflow
+          print("GITHUB_ACTIONS=", os.environ.get("GITHUB_ACTIONS"))
+          print("MLFLOW_TRACKING_URI env=", os.environ.get("MLFLOW_TRACKING_URI"))
+          print("mlflow.get_tracking_uri()=", mlflow.get_tracking_uri())
+          EOF
+          ls -la
+          [ -f mlflow.db ] && echo "mlflow.db exists" || echo "mlflow.db missing"
+          [ -d mlruns ] && echo "mlruns exists" || echo "mlruns missing"
 
       - name: Authenticate to Cloud Storage
         # TODO 2: Ghi noi dung credentials ra file tam va set bien moi truong xac thuc.
