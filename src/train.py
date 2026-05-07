@@ -11,11 +11,24 @@ from sklearn.metrics import accuracy_score, f1_score
 
 EVAL_THRESHOLD = 0.70
 
-# Set mlflow tracking URI to temp directory to avoid permission issues in CI/CD
-if "GITHUB_ACTIONS" in os.environ or not os.access(os.path.expanduser("~"), os.W_OK):
-    mlflow.set_tracking_uri(os.path.join(tempfile.gettempdir(), "mlflow"))
+def _configure_mlflow() -> None:
+    """
+    Cau hinh MLflow an toan cho CI/test:
+    - Khong phu thuoc vao mlflow.db/mlruns co san trong repo.
+    - Tranh artifact_uri tuyet doi tu may local (vd: /home/duckduck/...).
+    """
+    is_ci = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
+    is_pytest = "PYTEST_CURRENT_TEST" in os.environ
 
-mlflow.set_experiment("vinuni")
+    if is_ci or is_pytest:
+        tracking_dir = os.path.join(tempfile.gettempdir(), "mlflow_vinuni")
+        os.makedirs(tracking_dir, exist_ok=True)
+        mlflow.set_tracking_uri(f"file://{tracking_dir}")
+
+    mlflow.set_experiment("vinuni")
+
+
+_configure_mlflow()
 def train(
     params: dict,
     data_path: str = "data/train_phase1.csv",

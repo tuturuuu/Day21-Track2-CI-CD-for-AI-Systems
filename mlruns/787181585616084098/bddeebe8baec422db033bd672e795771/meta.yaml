@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/787181585616084098/bddeebe8baec422db033bd672e795771/artifacts
+end_time: 1778132856297
+entry_point_name: ''
+experiment_id: '787181585616084098'
+lifecycle_stage: active
+run_id: bddeebe8baec422db033bd672e795771
+run_name: luxuriant-sloth-535
+run_uuid: bddeebe8baec422db033bd672e795771
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778132853397
+status: 3
+tags: []
+user_id: duckduck
