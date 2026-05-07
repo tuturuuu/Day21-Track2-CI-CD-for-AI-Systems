@@ -27,13 +27,6 @@ def _configure_mlflow() -> None:
 
     mlflow.set_experiment("vinuni")
     exp = mlflow.get_experiment_by_name("vinuni")
-    print(
-        "[MLFLOW DEBUG] "
-        f"is_ci={is_ci} is_pytest={is_pytest} "
-        f"tracking_uri={mlflow.get_tracking_uri()} "
-        f"experiment_id={exp.experiment_id if exp else 'None'} "
-        f"artifact_location={exp.artifact_location if exp else 'None'}"
-    )
 
 
 _configure_mlflow()
@@ -63,12 +56,6 @@ def train(
     y_eval = df_eval["target"]
 
     with mlflow.start_run():
-        active_run = mlflow.active_run()
-        print(
-            "[MLFLOW DEBUG] "
-            f"run_id={active_run.info.run_id if active_run else 'None'} "
-            f"artifact_uri={mlflow.get_artifact_uri()}"
-        )
         mlflow.log_params(params)
 
         model = RandomForestClassifier(**params, random_state=42)
