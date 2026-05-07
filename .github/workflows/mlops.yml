@@ -200,10 +200,32 @@ jobs:
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
           script: |
-            # TODO 7: Restart service mlops-serve tren VM.
-            sudo systemctl restart mlops-serve
+            set -euxo pipefail
+            echo "User: $(whoami)"
+            echo "Host: $(hostname)"
 
-            # TODO 8: Cho server san sang roi goi curl /health de xac nhan.
-            #         Neu health check that bai sau nhieu lan thu, thoat voi exit 1.
-            sleep 5
-            curl -sf http://localhost:8000/health && echo "Health check passed." || exit 1
+            # Restart service and print detailed status when failing.
+            sudo systemctl restart mlops-serve || {
+              echo "Restart failed. Service status:"
+              sudo systemctl status mlops-serve --no-pager || true
+              echo "Recent logs:"
+              sudo journalctl -u mlops-serve -n 100 --no-pager || true
+              exit 1
+            }
+
+            sudo systemctl is-active mlops-serve
+            sudo systemctl status mlops-serve --no-pager || true
+
+            # Wait for API readiness with retries.
+            for i in $(seq 1 12); do
+              if curl -sf http://localhost:8000/health; then
+                echo "Health check passed."
+                exit 0
+              fi
+              echo "Health check attempt $i/12 failed; retrying in 5s..."
+              sleep 5
+            done
+
+            echo "Health check failed after retries. Recent service logs:"
+            sudo journalctl -u mlops-serve -n 100 --no-pager || true
+            exit 1
