@@ -2,4 +2,3 @@
     remote = myremote
 ['remote "myremote"']
     url = gs://day21-bucket/dvc
-    credentialpath = ../sa-key.json
