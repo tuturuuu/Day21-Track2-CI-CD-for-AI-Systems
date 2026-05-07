@@ -1,0 +1,16 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/0/39d8796179484ceda08d4ff454ddc2dd/artifacts
+deleted_time: 1778126967499
+end_time: 1778126666404
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 39d8796179484ceda08d4ff454ddc2dd
+run_name: fearless-grouse-198
+run_uuid: 39d8796179484ceda08d4ff454ddc2dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778126660946
+status: 3
+tags: []
+user_id: duckduck

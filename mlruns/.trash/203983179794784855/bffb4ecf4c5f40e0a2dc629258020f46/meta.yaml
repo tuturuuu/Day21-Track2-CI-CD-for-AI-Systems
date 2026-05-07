@@ -1,0 +1,16 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/203983179794784855/bffb4ecf4c5f40e0a2dc629258020f46/artifacts
+deleted_time: 1778128440048
+end_time: 1778126850288
+entry_point_name: ''
+experiment_id: '203983179794784855'
+lifecycle_stage: deleted
+run_id: bffb4ecf4c5f40e0a2dc629258020f46
+run_name: powerful-seal-906
+run_uuid: bffb4ecf4c5f40e0a2dc629258020f46
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778126844526
+status: 3
+tags: []
+user_id: duckduck

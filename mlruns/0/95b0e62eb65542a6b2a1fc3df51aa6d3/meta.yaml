@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/0/95b0e62eb65542a6b2a1fc3df51aa6d3/artifacts
+end_time: 1778126268604
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 95b0e62eb65542a6b2a1fc3df51aa6d3
+run_name: clean-bird-993
+run_uuid: 95b0e62eb65542a6b2a1fc3df51aa6d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778126264578
+status: 3
+tags: []
+user_id: duckduck

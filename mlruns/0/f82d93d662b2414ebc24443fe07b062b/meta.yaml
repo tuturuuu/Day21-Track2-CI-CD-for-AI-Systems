@@ -1,0 +1,16 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/0/f82d93d662b2414ebc24443fe07b062b/artifacts
+deleted_time: 1778126967512
+end_time: 1778126350977
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: f82d93d662b2414ebc24443fe07b062b
+run_name: bustling-steed-723
+run_uuid: f82d93d662b2414ebc24443fe07b062b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778126345746
+status: 3
+tags: []
+user_id: duckduck

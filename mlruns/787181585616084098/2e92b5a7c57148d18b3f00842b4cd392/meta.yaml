@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/787181585616084098/2e92b5a7c57148d18b3f00842b4cd392/artifacts
+end_time: 1778130569817
+entry_point_name: ''
+experiment_id: '787181585616084098'
+lifecycle_stage: active
+run_id: 2e92b5a7c57148d18b3f00842b4cd392
+run_name: bouncy-stork-939
+run_uuid: 2e92b5a7c57148d18b3f00842b4cd392
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778130565186
+status: 3
+tags: []
+user_id: duckduck

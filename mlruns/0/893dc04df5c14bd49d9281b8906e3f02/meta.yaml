@@ -1,0 +1,16 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/0/893dc04df5c14bd49d9281b8906e3f02/artifacts
+deleted_time: 1778126967501
+end_time: 1778126633554
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 893dc04df5c14bd49d9281b8906e3f02
+run_name: luminous-snipe-40
+run_uuid: 893dc04df5c14bd49d9281b8906e3f02
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778126628294
+status: 3
+tags: []
+user_id: duckduck

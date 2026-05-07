@@ -20,18 +20,19 @@ def download_model():
     """
     # TODO 1: Tao storage.Client()
     # client = storage.Client()
-
     # TODO 2: Lay bucket va blob tuong ung
-    # bucket = client.bucket(GCS_BUCKET)
-    # blob   = bucket.blob(GCS_MODEL_KEY)
-
     # TODO 3: Tai file model xuong may
-    # blob.download_to_filename(MODEL_PATH)
-
     # TODO 4: In thong bao thanh cong
-    # print("Model da duoc tai xuong tu GCS.")
+    client = storage.Client()
+    bucket = client.bucket(GCS_BUCKET)
+    blob = bucket.blob(GCS_MODEL_KEY)
 
-    pass  # xoa dong nay sau khi hoan thanh tat ca TODO ben tren
+    # Ensure target directory exists
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+
+    # Download model
+    blob.download_to_filename(MODEL_PATH)
+    print("Model da duoc tai xuong tu GCS.")
 
 
 download_model()
@@ -51,7 +52,7 @@ def health():
     Tra ve: {"status": "ok"}
     """
     # TODO 5: Tra ve dict {"status": "ok"}
-    pass  # xoa dong nay sau khi hoan thanh
+    return {"status": "ok"}
 
 
 @app.post("/predict")
@@ -68,16 +69,27 @@ def predict(req: PredictRequest):
         pH, sulphates, alcohol, wine_type
     """
     # TODO 6: Kiem tra so luong dac trung.
-    # Neu len(req.features) != 12, raise HTTPException(status_code=400, ...)
+    if len(req.features) != 12:
+        raise HTTPException(status_code=400, detail="features must be a list of 12 floats")
+
+    # Convert features to proper shape for prediction
+    try:
+        features = [float(x) for x in req.features]
+    except Exception:
+        raise HTTPException(status_code=400, detail="features must be convertible to floats")
 
     # TODO 7: Goi model.predict([req.features]) de lay ket qua du doan.
-    # pred = model.predict(...)
+    pred = model.predict([features])
 
     # TODO 8: Tra ve dict chua "prediction" (int) va "label" (string).
-    # Nhan tuong ung: 0 -> "thap", 1 -> "trung_binh", 2 -> "cao"
-    # return {"prediction": ..., "label": ...}
+    mapping = {0: "thap", 1: "trung_binh", 2: "cao"}
+    try:
+        pred_int = int(pred[0])
+    except Exception:
+        raise HTTPException(status_code=500, detail="invalid prediction from model")
 
-    pass  # xoa dong nay sau khi hoan thanh tat ca TODO ben tren
+    label = mapping.get(pred_int, "unknown")
+    return {"prediction": pred_int, "label": label}
 
 
 if __name__ == "__main__":

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/duckduck/dev/work/VinUni/Phase2/Day21-Track2-CI-CD-for-AI-Systems/mlruns/787181585616084098/31f7ab55a78a4798a10894c30118d425/artifacts
+end_time: 1778130575310
+entry_point_name: ''
+experiment_id: '787181585616084098'
+lifecycle_stage: active
+run_id: 31f7ab55a78a4798a10894c30118d425
+run_name: exultant-steed-399
+run_uuid: 31f7ab55a78a4798a10894c30118d425
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778130572607
+status: 3
+tags: []
+user_id: duckduck
